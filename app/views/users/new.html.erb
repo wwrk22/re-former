@@ -1,5 +1,31 @@
 <h1>Add User</h1>
 
+<%# The form action is set to /users here since @user from user#new has not been saved. %>
+<%= form_with model: @user do |form| %>
+
+  <div>
+    <%= form.label :username, 'Enter username (must be at least 4 characters long)' %><br>
+    <%= form.text_field :username %>
+  </div><br>
+
+  <div>
+    <%= form.label :password, 'Enter password (must be at least 12 characters long)' %><br>
+    <%= form.password_field :password %>
+  </div><br>
+
+  <div>
+    <%= form.label :email, 'Enter email (must be a valid email address)' %><br>
+    <%= form.text_field :email, value: 'foo@bar.com' %>
+  </div><br>
+
+  <div>
+    <%= form.submit 'Create User' %>
+  </div>
+
+
+<% end %>
+
+<!-- Railsy way to create a form.
 <%= form_tag "/users", method: "post" do %>
 
   <div>
@@ -22,6 +48,7 @@
   </div>
 
 <% end %>
+-->
 
 <!-- Same form as above but crafted manually. Keep for reference.
 <form action="/users" method="post" accept-charset="UTF-8">
