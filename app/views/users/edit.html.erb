@@ -1,0 +1,25 @@
+<h1>Edit User</h1>
+
+<%# The form action is set to /users here since @user from user#new has not been saved. %>
+<%= form_with model: @user do |form| %>
+
+  <div>
+    <%= form.label :username, 'Enter a new username' %><br>
+    <%= form.text_field :username, value: 'new username here' %>
+  </div><br>
+
+  <div>
+    <%= form.label :password, 'Enter a new password' %><br>
+    <%= form.password_field :password, value: 'new password here' %>
+  </div><br>
+
+  <div>
+    <%= form.label :email, 'Enter a new email' %><br>
+    <%= form.text_field :email, value: 'foo@bar.com' %>
+  </div><br>
+
+  <div>
+    <%= form.submit 'Create User' %>
+  </div>
+
+<% end %>
