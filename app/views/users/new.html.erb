@@ -6,16 +6,25 @@
   <div>
     <%= form.label :username, 'Enter username (must be at least 4 characters long)' %><br>
     <%= form.text_field :username %>
+    <% @user.errors.full_messages_for(:username).each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
   </div><br>
 
   <div>
     <%= form.label :password, 'Enter password (must be at least 12 characters long)' %><br>
     <%= form.password_field :password %>
+    <% @user.errors.full_messages_for(:password).each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
   </div><br>
 
   <div>
     <%= form.label :email, 'Enter email (must be a valid email address)' %><br>
     <%= form.text_field :email, value: 'foo@bar.com' %>
+    <% @user.errors.full_messages_for(:email).each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
   </div><br>
 
   <div>

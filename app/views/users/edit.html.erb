@@ -5,21 +5,30 @@
 
   <div>
     <%= form.label :username, 'Enter a new username' %><br>
-    <%= form.text_field :username, value: 'new username here' %>
+    <%= form.text_field :username, value: "#{@user[:username]}" %>
+    <% @user.errors.full_messages_for(:username).each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
   </div><br>
 
   <div>
     <%= form.label :password, 'Enter a new password' %><br>
-    <%= form.password_field :password, value: 'new password here' %>
+    <%= form.password_field :password, value: "#{@user[:password]}" %>
+    <% @user.errors.full_messages_for(:password).each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
   </div><br>
 
   <div>
     <%= form.label :email, 'Enter a new email' %><br>
-    <%= form.text_field :email, value: 'foo@bar.com' %>
+    <%= form.text_field :email, value: "#{@user[:email]}" %>
+    <% @user.errors.full_messages_for(:email).each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
   </div><br>
 
   <div>
-    <%= form.submit 'Create User' %>
+    <%= form.submit 'Edit User' %>
   </div>
 
 <% end %>
